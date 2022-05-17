@@ -33,4 +33,14 @@ public class MyIntStack {
         // returns the thing removed
         return this.stack.pop();
     }
+
+    public int peekyBlinders() {
+
+        // returns element at the top of the stack
+        return this.stack.peek();
+    }
+
+    public int stackSearch(int search) {
+        return this.stack.search(search);
+    }
 }

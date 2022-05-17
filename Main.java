@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         int i = 0;
+        int search = 0;
 
         // getting user input to put to the stack
         Scanner myObj = new Scanner(System.in);
@@ -36,12 +37,31 @@ public class Main {
             s = myObj.nextLine();
         }
 
+        System.out.println("input place to search");
+        String searchString = myObj.nextLine();
+
+        while (true) {
+
+            // if the user inputs a number less than 0 then tell them to input a positive
+            // number
+            try {
+                search = Integer.parseInt(searchString);
+                if (search >= 0) {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("please input a positive number");
+            }
+            searchString = myObj.nextLine();
+        }
+
         // create an object of class MyIntStack and print its value
         MyIntStack stupid = new MyIntStack();
 
         // printing the function from other file
         stupid.pushing(i);
-        stupid.peek();
+        stupid.peekyBlinders();
+        stupid.stackSearch(search);
 
     }
 }
