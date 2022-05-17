@@ -9,6 +9,7 @@
 import java.io.*;
 import java.util.*;
 import java.io.IOException;
+import java.rmi.StubNotFoundException;
 import java.util.Scanner;
 
 public class Main {
@@ -32,7 +33,7 @@ public class Main {
                     break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("please input a positive number");
+                System.out.println("input a positive number");
             }
             s = myObj.nextLine();
         }
@@ -50,7 +51,7 @@ public class Main {
                     break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("please input a positive number");
+                System.out.println("input a positive number");
             }
             searchString = myObj.nextLine();
         }
@@ -61,6 +62,7 @@ public class Main {
         // printing the function from other file
         stupid.pushing(i);
         stupid.peekyBlinders();
+        stupid.remove();
         stupid.stackSearch(search);
 
     }
