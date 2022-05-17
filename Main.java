@@ -14,17 +14,34 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        int i = 0;
+
         // getting user input to put to the stack
         Scanner myObj = new Scanner(System.in);
         System.out.println("input number");
-        String i = myObj.nextLine();
+        String s = myObj.nextLine();
+
+        while (true) {
+
+            // if the user inputs a number less than 0 then tell them to input a positive
+            // number
+            try {
+                i = Integer.parseInt(s);
+                if (i >= 0) {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("please input a positive number");
+            }
+            s = myObj.nextLine();
+        }
 
         // create an object of class MyIntStack and print its value
-        MyIntStack gd = new MyIntStack();
+        MyIntStack stupid = new MyIntStack();
 
         // printing the function from other file
-        gd.pushing(7);
-        gd.peek();
+        stupid.pushing(i);
+        stupid.peek();
 
     }
 }
