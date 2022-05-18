@@ -20,10 +20,10 @@ public class MyIntStack {
 
     }
 
-    public void pushing(int i) {
+    public Integer pushing(int i) {
 
         // this acts like .add in a list, pushes the i to the top of the stack
-        this.stack.push(i);
+        return this.stack.push(i);
     }
 
     // always removes the top
@@ -41,6 +41,10 @@ public class MyIntStack {
     }
 
     public int stackSearch(int search) {
+
+        // FInds element in the stack and returns the index of that element, returns -1
+        // if it does not appear
         return this.stack.search(search);
     }
+
 }
