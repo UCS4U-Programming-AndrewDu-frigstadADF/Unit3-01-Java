@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
 
         // create an object of class MyIntStack and print its value
-        MyIntStack stupid = new MyIntStack();
+        MyIntStack otherStack = new MyIntStack();
         int i = 0;
         int search = 0;
 
@@ -43,6 +43,7 @@ public class Main {
                     try {
                         i = Integer.parseInt(s);
                         if (i >= 0) {
+                            otherStack.push(i);
                             break;
                         }
                     } catch (NumberFormatException e) {
@@ -53,12 +54,12 @@ public class Main {
 
             } else if (answerLower.equals("exit")) {
 
-                System.out.println("Done with this dude, aboslutely finished");
+                System.out.println("Finished");
                 break;
 
             } else if (answerLower.equals("peek")) {
 
-                System.out.println(stupid.peekyBlinders());
+                System.out.println(otherStack.peek());
 
             } else if (answerLower.equals("search")) {
 
@@ -80,26 +81,28 @@ public class Main {
                     searchString = myObj.nextLine();
                 }
 
-                if (stupid.stackSearch(search) == -1) {
+                if (otherStack.stackSearch(search) == -1) {
 
                     System.out.println("That number does not appear in the list");
 
                 } else {
 
-                    System.out.println("that number appears at " + stupid.stackSearch(search));
+                    System.out.println("that number appears at " + otherStack.stackSearch(search));
 
                 }
 
             } else if (answerLower.equals("pop")) {
                 
-                System.out.println(stupid.remove());
+                System.out.println(otherStack.pop());
 
+            } else {
+                System.out.println("That is not a valid input");
             }
         }
 
         // printing the function from other file
-        stupid.pushing(i);
-        stupid.remove();
+        otherStack.push(i);
+        otherStack.pop();
 
     }
 }

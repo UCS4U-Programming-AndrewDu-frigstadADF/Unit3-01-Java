@@ -20,31 +20,37 @@ public class MyIntStack {
 
     }
 
-    public Integer pushing(int i) {
+    public void push(int i) {
 
         // this acts like .add in a list, pushes the i to the top of the stack
-        return this.stack.push(i);
+        this.stack.push(i);
     }
 
     // always removes the top
-    public int remove() {
+    public int pop() {
 
         // pop is a method that removes the top element
         // returns the thing removed
-        return this.stack.pop();
+        int temp = this.stack.pop();
+        System.out.println( " popped " + temp);
+        return temp;
     }
 
-    public int peekyBlinders() {
+    public int peek() {
 
         // returns element at the top of the stack
-        return this.stack.peek();
+        int peekNum = (int) stack.peek();
+        System.out.println("element is " + peekNum);
+        return peekNum;
     }
 
     public int stackSearch(int search) {
 
         // FInds element in the stack and returns the index of that element, returns -1
         // if it does not appear
-        return this.stack.search(search);
+        int searchNum = (int) stack.search(search);
+        System.out.println(search + " is at index " + searchNum);
+        return searchNum;
     }
 
 }
