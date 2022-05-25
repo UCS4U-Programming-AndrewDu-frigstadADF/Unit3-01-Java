@@ -21,6 +21,8 @@ public class Main {
         MyIntStack otherStack = new MyIntStack();
         int i = 0;
         int search = 0;
+        int numPush = 0;
+        int counter = 0;
 
         // getting user input to put to the stack
         Scanner myObj = new Scanner(System.in);
@@ -35,19 +37,47 @@ public class Main {
 
                 while (true) {
 
-                    System.out.println("input number");
-                    String s = myObj.nextLine();
+                    System.out.println("How many numbers would you like to push?");
+                    String pushAmount = myObj.nextLine();
 
-                    // if the user inputs a number less than 0 then tell them to input a positive
-                    // number
-                    try {
-                        i = Integer.parseInt(s);
-                        if (i >= 0) {
-                            otherStack.push(i);
+                    while (true) {
+
+                        try {
+                            numPush = Integer.parseInt(pushAmount);
+                            if (numPush >= 0) {
+                                System.out.println(numPush);
+                                break;
+                            }
+                        } catch (NumberFormatException e) {
+                            System.out.println("input a positive number");
+                        }
+                    }
+
+                    while (numPush != counter) {
+
+                        counter = counter + 1;
+
+                        System.out.println("input number");
+                        String s = myObj.nextLine();
+
+                        // if the user inputs a number less than 0 then tell them to input a positive
+                        // number
+                        while (true) {
+
+                            try {
+                                i = Integer.parseInt(s);
+                                if (i >= 0) {
+                                    otherStack.push(i);
+                                    break;
+                                }
+                            } catch (NumberFormatException e) {
+                                System.out.println("input a positive number");
+                            }
+                        }
+
+                        if (numPush == counter) {
                             break;
                         }
-                    } catch (NumberFormatException e) {
-                        System.out.println("input a positive number");
                     }
 
                 }
@@ -92,7 +122,7 @@ public class Main {
                 }
 
             } else if (answerLower.equals("pop")) {
-                
+
                 System.out.println(otherStack.pop());
 
             } else {
