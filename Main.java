@@ -29,6 +29,7 @@ public class Main {
 
         while (true) {
 
+            // allow user to ask for what operation they would like to do
             System.out.println("What operation would you like to perform?");
             String answer = myObj.nextLine();
             String answerLower = answer.toLowerCase();
@@ -37,15 +38,18 @@ public class Main {
 
                 while (true) {
 
+                    // make it easier to input multiple numbers
                     System.out.println("How many numbers would you like to push?");
                     String pushAmount = myObj.nextLine();
 
+                    counter = 0;
+
+                    // check if it is positive or a string
                     while (true) {
 
                         try {
                             numPush = Integer.parseInt(pushAmount);
                             if (numPush >= 0) {
-                                System.out.println(numPush);
                                 break;
                             }
                         } catch (NumberFormatException e) {
@@ -53,6 +57,7 @@ public class Main {
                         }
                     }
 
+                    // keep stacking numbers until it reaches the amount set by the user
                     while (numPush != counter) {
 
                         counter = counter + 1;
@@ -74,12 +79,9 @@ public class Main {
                                 System.out.println("input a positive number");
                             }
                         }
-
-                        if (numPush == counter) {
-                            break;
-                        }
                     }
 
+                    break;
                 }
 
             } else if (answerLower.equals("exit")) {
@@ -111,13 +113,14 @@ public class Main {
                     searchString = myObj.nextLine();
                 }
 
+                // if the number is not in the stack then return
                 if (otherStack.stackSearch(search) == -1) {
 
                     System.out.println("That number does not appear in the list");
 
                 } else {
 
-                    System.out.println("that number appears at " + otherStack.stackSearch(search));
+                    System.out.println(otherStack.stackSearch(search));
 
                 }
 
@@ -129,10 +132,5 @@ public class Main {
                 System.out.println("That is not a valid input");
             }
         }
-
-        // printing the function from other file
-        otherStack.push(i);
-        otherStack.pop();
-
     }
 }

@@ -32,7 +32,7 @@ public class MyIntStack {
         // pop is a method that removes the top element
         // returns the thing removed
         int temp = this.stack.pop();
-        System.out.println( " popped " + temp);
+        System.out.println("popped " + temp);
         return temp;
     }
 
