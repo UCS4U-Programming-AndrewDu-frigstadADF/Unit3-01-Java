@@ -6,6 +6,7 @@
  **/
 
 // imports
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class MyIntStack {
@@ -31,17 +32,26 @@ public class MyIntStack {
 
         // pop is a method that removes the top element
         // returns the thing removed
-        int temp = this.stack.pop();
-        System.out.println("popped " + temp);
-        return temp;
+        try {
+            int temp = this.stack.pop();
+            System.out.println("popped " + temp);
+            return temp;
+        } catch (EmptyStackException e) {
+            return -1;
+        }
     }
 
     public int peek() {
 
         // returns element at the top of the stack
-        int peekNum = (int) stack.peek();
-        System.out.println("element is " + peekNum);
-        return peekNum;
+        try {
+            int peekNum = (int) stack.peek();
+            System.out.println("element is " + peekNum);
+            return peekNum;
+        } catch (EmptyStackException e) {
+            return -1;
+        }
+
     }
 
     public int stackSearch(int search) {
@@ -49,8 +59,20 @@ public class MyIntStack {
         // FInds element in the stack and returns the index of that element, returns -1
         // if it does not appear
         int searchNum = (int) stack.search(search);
-        System.out.println(search + " is at index " + searchNum);
+
+        if (searchNum == -1) {
+            System.out.println("That number does not appear in the stack");
+        } else {
+            System.out.println(search + " is at index " + searchNum);
+        }
+
         return searchNum;
+    }
+
+    public void clear() {
+
+        // clears the stack
+        this.stack.clear();
     }
 
 }

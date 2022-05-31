@@ -1,3 +1,4 @@
+
 /**
  * starting and learning stacks, constructors and object-oriented programming
  * Author Andrew Du-frigstad
@@ -5,14 +6,7 @@
  * since 2022-05-17
 **/
 
-// imports
-import java.io.*;
-import java.util.*;
-import java.io.IOException;
-import java.rmi.StubNotFoundException;
 import java.util.Scanner;
-
-import javax.swing.text.html.StyleSheet;
 
 public class Main {
     public static void main(String[] args) {
@@ -77,10 +71,10 @@ public class Main {
                                 }
                             } catch (NumberFormatException e) {
                                 System.out.println("input a positive number");
+                                s = myObj.nextLine();
                             }
                         }
                     }
-
                     break;
                 }
 
@@ -91,7 +85,13 @@ public class Main {
 
             } else if (answerLower.equals("peek")) {
 
-                System.out.println(otherStack.peek());
+                // if it returns the error then display that the stack is empty
+                if (otherStack.peek() == -1) {
+                    System.out.println("Stack is empty");
+                } else {
+
+                    System.out.println(otherStack.peek());
+                }
 
             } else if (answerLower.equals("search")) {
 
@@ -113,20 +113,21 @@ public class Main {
                     searchString = myObj.nextLine();
                 }
 
-                // if the number is not in the stack then return
-                if (otherStack.stackSearch(search) == -1) {
-
-                    System.out.println("That number does not appear in the list");
-
-                } else {
-
-                    System.out.println(otherStack.stackSearch(search));
-
-                }
+                otherStack.stackSearch(search);
 
             } else if (answerLower.equals("pop")) {
 
-                System.out.println(otherStack.pop());
+                // returns "the stack is empty" when the stakc returns -1 through error checking
+                if (otherStack.pop() == -1) {
+                    System.out.println("Stack is empty");
+                } else {
+                    System.out.println(otherStack.pop());
+                }
+
+            } else if (answerLower.equals("clear")) {
+
+                otherStack.clear();
+                System.out.println("cleared");
 
             } else {
                 System.out.println("That is not a valid input");
