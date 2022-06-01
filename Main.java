@@ -45,9 +45,13 @@ public class Main {
                             numPush = Integer.parseInt(pushAmount);
                             if (numPush >= 0) {
                                 break;
+                            } else {
+                                System.out.println("input a positive number");
+                                pushAmount = myObj.nextLine();
                             }
                         } catch (NumberFormatException e) {
                             System.out.println("input a positive number");
+                            pushAmount = myObj.nextLine();
                         }
                     }
 
@@ -68,6 +72,9 @@ public class Main {
                                 if (i >= 0) {
                                     otherStack.push(i);
                                     break;
+                                } else {
+                                    System.out.println("input a positive number");
+                                    s = myObj.nextLine();
                                 }
                             } catch (NumberFormatException e) {
                                 System.out.println("input a positive number");
@@ -102,15 +109,18 @@ public class Main {
 
                     // if the user inputs a number less than 0 then tell them to input a positive
                     // number
-                    try {
+                    try { 
                         search = Integer.parseInt(searchString);
                         if (search >= 0) {
                             break;
+                        } else {
+                            System.out.println("input a positive number");
+                            searchString = myObj.nextLine();
                         }
                     } catch (NumberFormatException e) {
                         System.out.println("input a positive number");
+                        searchString = myObj.nextLine();
                     }
-                    searchString = myObj.nextLine();
                 }
 
                 otherStack.stackSearch(search);
@@ -118,10 +128,10 @@ public class Main {
             } else if (answerLower.equals("pop")) {
 
                 // returns "the stack is empty" when the stakc returns -1 through error checking
-                if (otherStack.pop() == -1) {
+                if (otherStack.peek() == -1) {
                     System.out.println("Stack is empty");
                 } else {
-                    System.out.println(otherStack.pop());
+                    otherStack.pop();
                 }
 
             } else if (answerLower.equals("clear")) {
